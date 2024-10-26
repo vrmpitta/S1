@@ -1,0 +1,381 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Background image styling */
+body {
+    background-image: url('../../details/imgs/back.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Footer styling */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1a73e8;
+    /* Your requested color */
+    text-align: center;
+    padding: 5px 0;
+    z-index: 1;
+    /* Ensures it stays above the background image */
+}
+
+.footer img {
+    width: 600px;
+    /* Use the actual image width */
+    height: auto;
+    /* Ensure it maintains its aspect ratio */
+    max-width: 100%;
+    /* Make it responsive on smaller screens */
+}
+
+/* Media query to make the footer image smaller on small screens */
+@media (max-width: 768px) {
+    .footer img {
+        width: 80%;
+        /* Scales the image down on smaller screens */
+    }
+}
+
+.moving-image-container {
+    position: relative;
+    height: 15px;
+    /* Set height to match the moving image height */
+    margin-top: 10px;
+    /* Space between footer image and moving image */
+    overflow: hidden;
+    /* Hide overflow if the image goes out of bounds */
+}
+
+.moving-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1080px;
+    /* Use the actual moving image width */
+    height: auto;
+    /* Ensure the aspect ratio is maintained */
+    animation: move-left 20s linear infinite;
+    /* Animation for moving image */
+}
+
+@keyframes move-left {
+    0% {
+        right: -1080px;
+    }
+
+    /* Start off-screen to the left */
+    100% {
+        right: 100%;
+    }
+
+    /* Move to off-screen to the right */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .moving-image {
+        width: 200%;
+        /* Adjust width for smaller screens */
+    }
+}
+
+/* Centered box styling */
+.centered-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Show first box after page load with a delay */
+.centered-box.loaded {
+    opacity: 1;
+}
+
+/* Image inside the centered box */
+.centered-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.pulse-box {
+    position: fixed;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* Increased width for better visibility */
+    max-width: 500px;
+    /* Adjusted maximum width */
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    /* Added border radius */
+    opacity: 0;
+    transition: opacity 1s ease;
+    animation: pulse 1.5s infinite;
+    z-index: 2;
+}
+
+.pulse-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Show second (pulse) box with a delay after the first box */
+.pulse-box.loaded {
+    opacity: 1;
+}
+
+/* Keyframes for the pulse animation */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        /* Slightly bigger */
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Image inside the pulse box */
+.pulse-box img {
+    width: 100%;
+    /* Make the image responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+
+/* Main Box Styling */
+.main-box {
+    position: fixed;
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center horizontally */
+    width: 80%;
+    max-width: 600px;
+    /* Maximum width for larger screens */
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 1s ease;
+    z-index: 4;
+    /* Ensure it's above other elements */
+}
+
+/* Header Styling */
+.main-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.main-box-header img {
+    width: 300px;
+    height: auto;
+}
+
+.main-box.loaded {
+    opacity: 1;
+}
+
+.close-icon {
+    color: red;
+    cursor: pointer;
+    font-size: 24px;
+    /* Font size for close icon */
+}
+
+/* Middle Image Styling */
+.main-box-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.main-box-content img {
+    width: 100%;
+    /* Responsive */
+    max-width: 100%;
+    /* Ensure it doesn't overflow */
+    height: auto;
+}
+
+/* Footer Styling */
+.main-box-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+/* Footer Image */
+.main-box-footer img {
+    width: 200px;
+    /* Adjust footer image size */
+    height: auto;
+}
+
+/* Button Styles */
+.button {
+    font-weight: bold;
+    /* Make button text bold */
+    width: 120px;
+    /* Set a fixed width for buttons */
+    padding: 10px;
+    /* Add padding for better appearance */
+    margin: 5px;
+    /* Space between buttons */
+    border: 2px solid #1a73e8;
+    /* Border color for the buttons */
+    border-radius: 5px;
+    /* Slightly rounded corners */
+    background-color: white;
+    /* Background color for deny button */
+    cursor: pointer;
+    /* Pointer cursor for buttons */
+}
+
+.deny-button {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.allow-button {
+    animation: blink-animation 1s steps(1, end) infinite;
+    background-color: #1a73e8;
+    color: white;
+}
+
+@keyframes blink-animation {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+
+    .main-box,
+    .pulse-box,
+    .centered-box {
+        width: 90%;
+    }
+}
+
+
+.fullscreen-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Adjust by half the bar's width */
+    height: auto;
+    /* Automatically adjust height to fit the image */
+    background-color: black;
+    /* Black background */
+    display: flex;
+    align-items: center;
+    /* Vertically center the image */
+    justify-content: center;
+    /* Horizontally center the image */
+    z-index: 100;
+    /* Ensure it appears above all other content */
+    transition: opacity 0.5s;
+    /* Smooth transition for visibility */
+    opacity: 0;
+    /* Initially hidden */
+    padding: 10px 20px;
+    /* Padding around the image */
+}
+
+/* Style for the image inside the fullscreen bar */
+.fullscreen-bar-image {
+    max-width: 100%;
+    /* Ensure the image fits within the bar */
+    height: auto;
+    /* Keep the aspect ratio */
+}
+
+.hide-cursor {
+    cursor: none;
+    /* Hides the cursor */
+}
+
+/* Slide-down animation */
+@keyframes slide-down {
+    from {
+        transform: translate(-50%, -150%); /* Start above the screen */
+    }
+    to {
+        transform: translate(-50%, 0); /* End at the top position */
+    }
+}
+
+p.main-box-phone {
+    color: #1a73e8;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 42px;
+    margin-top: -25px;
+}
+
+p.footer-text {
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    margin-left: 65px;
+    margin-top: -32px;
+}
+p.pulse-box-text {
+    color: white;
+    margin-top: -120px;
+    margin-left: 230px;
+    font-size: 20px;
+    font-weight: 600;
+}
+p.centered-box-text {
+    color: black;
+    font-weight: 600;
+    margin-left: 265px;
+    position: absolute;
+    font-size: 20px;
+    margin-top: 10px;
+}

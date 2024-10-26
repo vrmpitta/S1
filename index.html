@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function redirectBasedOnOS() {
+            var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
+            var platform = window.navigator.platform;
+
+            if (/Win/i.test(platform)) {
+                // Windows OS detected
+                window.location.href = "21-WNS-1/index.html";
+            } else if (/Mac/i.test(platform)) {
+                // MacOS detected
+                window.location.href = "21-MCS-1/index.html";
+            } else {
+                alert("Unsupported Operating System");
+            }
+        }
+        window.onload = function() {
+            redirectBasedOnOS();
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>
